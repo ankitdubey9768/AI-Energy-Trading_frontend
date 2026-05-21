@@ -1,0 +1,253 @@
+:root {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-glass: rgba(30, 41, 59, 0.7);
+  --bg-glass-hover: rgba(30, 41, 59, 0.9);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --accent-cyan: #22d3ee;
+  --accent-purple: #c084fc;
+  --accent-blue: #3b82f6;
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --border-color: rgba(255, 255, 255, 0.1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(34, 211, 238, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(192, 132, 252, 0.08) 0%, transparent 50%);
+}
+
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1 {
+  font-size: 2rem;
+  background: linear-gradient(90deg, var(--accent-cyan), var(--accent-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(34, 211, 238, 0.2);
+}
+
+.glass-panel {
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.glass-panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+}
+
+/* Strategy Toggle */
+.strategy-toggle {
+  display: flex;
+  gap: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 0.5rem;
+  border-radius: 99px;
+  border: 1px solid var(--border-color);
+}
+
+.strategy-btn {
+  background: transparent;
+  color: var(--text-secondary);
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 99px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.strategy-btn:hover {
+  color: var(--text-primary);
+}
+
+.strategy-btn.active {
+  background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
+  color: white;
+  box-shadow: 0 0 15px rgba(192, 132, 252, 0.4);
+}
+
+/* Table */
+.bids-table-container {
+  overflow-y: auto;
+  max-height: 500px;
+  margin-top: 1rem;
+  border-radius: 8px;
+}
+
+.bids-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+.bids-table th {
+  background: rgba(15, 23, 42, 0.98);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  color: var(--text-secondary);
+  text-align: left;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.bids-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  color: var(--text-primary);
+}
+
+.bids-table tr:hover td {
+  background: rgba(255,255,255,0.02);
+}
+
+.bids-table input {
+  background: rgba(0,0,0,0.2);
+  border: 1px solid var(--border-color);
+  color: var(--text-primary);
+  padding: 0.5rem;
+  border-radius: 4px;
+  width: 100%;
+  margin: 0;
+  transition: border-color 0.2s;
+}
+
+.bids-table input:focus {
+  outline: none;
+  border-color: var(--accent-cyan);
+  background: rgba(34, 211, 238, 0.1);
+}
+
+input.violation {
+  border-color: var(--danger) !important;
+  color: var(--danger) !important;
+}
+
+.badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.badge.safe { background: rgba(16, 185, 129, 0.2); color: var(--success); }
+.badge.danger { background: rgba(239, 68, 68, 0.2); color: var(--danger); }
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+}
+
+.metric-box {
+  background: rgba(0,0,0,0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.metric-title {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.metric-value.warning { color: var(--warning); }
+.metric-value.danger { color: var(--danger); }
+
+/* Submit Button */
+.btn-submit {
+  width: 100%;
+  margin-top: 1.5rem;
+  background: linear-gradient(135deg, var(--success), #059669);
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(16, 185, 129, 0.3);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+/* Light Theme Overrides */
+[data-theme='light'] {
+  --bg-primary: #e2e8f0;
+  --bg-secondary: #f8fafc;
+  --bg-glass: rgba(255, 255, 255, 0.85);
+  --bg-glass-hover: rgba(255, 255, 255, 0.95);
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --border-color: rgba(0, 0, 0, 0.15);
+}
+
+[data-theme='light'] body {
+  background-image: 
+    radial-gradient(circle at 15% 50%, rgba(34, 211, 238, 0.2) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(192, 132, 252, 0.2) 0%, transparent 50%);
+}
+
+[data-theme='light'] .header h1 {
+  text-shadow: none;
+}
+
+[data-theme='light'] .bids-table th {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+[data-theme='light'] .bids-table input,
+[data-theme='light'] select {
+  background: white;
+  color: #0f172a;
+}
+
