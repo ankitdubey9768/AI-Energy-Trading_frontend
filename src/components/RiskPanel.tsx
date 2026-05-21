@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const RiskPanel = ({ metrics, bids, role, filterViolations, setFilterViolations }: { metrics: any, bids?: any[], role: string, filterViolations?: boolean, setFilterViolations?: any }) => {
   const [toastMessage, setToastMessage] = useState<{title: string, msg: string, type: 'success' | 'err'} | null>(null);
@@ -19,21 +19,21 @@ const RiskPanel = ({ metrics, bids, role, filterViolations, setFilterViolations 
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ metrics, bids })
-      }).then(res => res.json()).then(data => {
-        if (data.draftId) setDraftId(data.draftId);
-        setToastMessage({ title: 'Draft Secured', msg: data.message, type: 'success' });
+      }).then(res => res.json()).then(_data => {
+        if (_data.draftId) setDraftId(_data.draftId);
+        setToastMessage({ title: 'Draft Secured', msg: _data.message, type: 'success' });
         setTimeout(() => setToastMessage(null), 6000);
-      }).catch(err => {
+      }).catch(_err => {
         setToastMessage({ title: 'Draft Saved Locally', msg: "Backend offline or restarting.", type: 'success' });
         setTimeout(() => setToastMessage(null), 6000);
       });
     } else {
       fetch(`http://localhost:8081/api/bids/approve${draftId ? `?draftId=${draftId}` : ''}`, {
         method: 'POST'
-      }).then(res => res.json()).then(data => {
+      }).then(res => res.json()).then(_data => {
         setToastMessage({ title: 'System Override', msg: "Governance threshold passed. ✅ Bids officially approved and routed cleanly downstream to Power Exchange!", type: 'success' });
         setTimeout(() => setToastMessage(null), 6000);
-      }).catch(err => {
+      }).catch(_err => {
         setToastMessage({ title: 'System Override', msg: "Governance threshold passed. ✅ Bids officially approved and routed cleanly downstream to Power Exchange!", type: 'success' });
         setTimeout(() => setToastMessage(null), 6000);
       });

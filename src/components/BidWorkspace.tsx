@@ -1,5 +1,3 @@
-import React from 'react';
-
 const BidWorkspace = ({ bids, setBids, forecastData, market, filterViolations, setFilterViolations, initialBids }: { bids: any[], setBids: any, forecastData: any[], market: string, filterViolations?: boolean, setFilterViolations?: any, initialBids?: any[] }) => {
   const handleBidChange = (originalIndex: number, field: string, value: any) => {
     const newBids = [...bids];

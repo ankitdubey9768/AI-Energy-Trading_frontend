@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 const PendingBidsModal = ({ isOpen, onClose, onImportBids }: { isOpen: boolean, onClose: () => void, onImportBids: (bids: any[]) => void }) => {
   const [drafts, setDrafts] = useState<any[]>([]);

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import BidWorkspace from '../components/BidWorkspace';
 import RiskPanel from '../components/RiskPanel';
 import ForecastingChart from '../components/ForecastingChart';

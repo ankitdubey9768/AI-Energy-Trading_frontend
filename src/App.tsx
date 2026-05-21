@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Dashboard from './pages/Dashboard';
 import AlertSystem from './components/AlertSystem';
 import Login from './components/Login';
@@ -91,7 +91,7 @@ function App() {
                 ) : (
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '0.8rem', maxHeight: '400px', overflowY: 'auto' }}>
                      
-                     {systemAlerts.map((a, i) => (
+                     {systemAlerts.map((a, _i) => (
                         <div key={a.id} 
                              onClick={(e) => markAsRead(a.id, e)}
                              style={{ padding: '0.8rem', background: a.read ? 'rgba(0,0,0,0.3)' : (a.level === 'CRITICAL' ? 'rgba(239, 68, 68, 0.1)' : 'rgba(245, 158, 11, 0.1)'), borderLeft: `3px solid ${a.level === 'CRITICAL' ? 'var(--danger)' : (a.level === 'INFO' ? 'var(--accent-blue)' : 'var(--warning)')}`, borderRadius: '4px', textAlign: 'left', opacity: a.read ? 0.5 : 1, cursor: 'pointer', transition: 'all 0.2s', display: 'flex', flexDirection: 'column', gap: '0.3rem' }}>
