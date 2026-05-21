@@ -11,7 +11,7 @@ import {
   Filler,
   Legend,
 } from 'chart.js';
-import { Line } from 'react-chartjs-2';
+import { Line, Bar } from 'react-chartjs-2';
 
 ChartJS.register(
   CategoryScale,
@@ -131,7 +131,7 @@ const ForecastingChart = ({ forecastData, bids }: { forecastData: any[], bids: a
         </select>
       </div>
       <div style={{ height: '340px' }}>
-        <Line options={options} data={data as any} />
+        {chartType === 'bar' ? <Bar options={options} data={data as any} /> : <Line options={options} data={data as any} />}
       </div>
     </div>
   );
