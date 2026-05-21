@@ -4,7 +4,7 @@ const ArbitrageWidget = () => {
   const [opps, setOpps] = useState<any[]>([]);
 
   useEffect(() => {
-    fetch('http://localhost:8000/arbitrage/opportunities')
+    fetch('https://ai-energy-trading-ml-service.onrender.com/arbitrage/opportunities')
       .then(res => res.json())
       .then(data => setOpps(data.opportunities))
       .catch(err => console.log(err));

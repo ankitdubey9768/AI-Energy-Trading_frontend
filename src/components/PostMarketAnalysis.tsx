@@ -10,7 +10,7 @@ const PostMarketAnalysis = () => {
   const [report, setReport] = useState<any>(null);
 
   useEffect(() => {
-    fetch('http://localhost:8000/performance/yesterday')
+    fetch('https://ai-energy-trading-ml-service.onrender.com/performance/yesterday')
       .then(res => res.json())
       .then(data => setReport(data))
       .catch(err => console.error(err));

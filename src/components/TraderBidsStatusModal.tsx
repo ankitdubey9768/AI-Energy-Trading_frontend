@@ -13,7 +13,7 @@ const TraderBidsStatusModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: 
   const fetchDrafts = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:8081/api/bids/drafts');
+      const res = await fetch('https://ai-energy-trading-backend.onrender.com/api/bids/drafts');
       if (res.ok) {
         const data = await res.json();
         // Sort descending by ID or createdAt if available to show newest first

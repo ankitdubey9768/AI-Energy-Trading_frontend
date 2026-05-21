@@ -8,7 +8,7 @@ const BecknWidget = () => {
   const handleSearch = () => {
     setSearching(true);
     setOrderState(null);
-    fetch('http://localhost:8081/api/beckn/search', {
+    fetch('https://ai-energy-trading-backend.onrender.com/api/beckn/search', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ intent: "buy_power", volume: 50 })
@@ -25,7 +25,7 @@ const BecknWidget = () => {
   };
 
   const handleOrder = (providerId: string) => {
-    fetch('http://localhost:8081/api/beckn/order', {
+    fetch('https://ai-energy-trading-backend.onrender.com/api/beckn/order', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ provider_id: providerId, volume: 50 })

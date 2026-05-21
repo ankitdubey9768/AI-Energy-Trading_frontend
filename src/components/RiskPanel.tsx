@@ -15,7 +15,7 @@ const RiskPanel = ({ metrics, bids, role, filterViolations, setFilterViolations 
     
     // Workflow Governance Trigger
     if (role === 'Trader') {
-      fetch('http://localhost:8081/api/bids/draft', {
+      fetch('https://ai-energy-trading-backend.onrender.com/api/bids/draft', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ metrics, bids })

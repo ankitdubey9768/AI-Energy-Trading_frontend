@@ -18,7 +18,7 @@ function App() {
 
   // Global Notification WebSocket
   useEffect(() => {
-    let ws = new WebSocket('ws://localhost:8000/ws/notifications');
+    let ws = new WebSocket('https://ai-energy-trading-ml-service.onrender.com/ws/notifications');
     ws.onmessage = (event) => {
       try {
         const payload = JSON.parse(event.data);

@@ -5,7 +5,7 @@ const AlertSystem = () => {
 
   useEffect(() => {
     // Fetch initial alerts from Spring Boot Backend
-    fetch('http://localhost:8081/api/alerts')
+    fetch('https://ai-energy-trading-backend.onrender.com/api/alerts')
       .then(res => res.json())
       .then(data => {
         // Tag with a unique ID for local component mapping

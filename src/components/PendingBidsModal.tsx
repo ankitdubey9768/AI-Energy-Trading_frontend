@@ -13,7 +13,7 @@ const PendingBidsModal = ({ isOpen, onClose, onImportBids }: { isOpen: boolean, 
   const fetchDrafts = async () => {
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:8081/api/bids/drafts');
+      const res = await fetch('https://ai-energy-trading-backend.onrender.com/api/bids/drafts');
       if (res.ok) {
         const data = await res.json();
         // filter out only pending if needed, or by status
@@ -28,8 +28,8 @@ const PendingBidsModal = ({ isOpen, onClose, onImportBids }: { isOpen: boolean, 
   const handleAction = async (id: string, action: 'approve' | 'reject') => {
     try {
       const url = action === 'approve' 
-        ? `http://localhost:8081/api/bids/approve?draftId=${id}` 
-        : `http://localhost:8081/api/bids/reject?draftId=${id}&reason=Rejected by manager`;
+        ? `https://ai-energy-trading-backend.onrender.com/api/bids/approve?draftId=${id}` 
+        : `https://ai-energy-trading-backend.onrender.com/api/bids/reject?draftId=${id}&reason=Rejected by manager`;
       
       const res = await fetch(url, { method: 'POST' });
       if (res.ok) {

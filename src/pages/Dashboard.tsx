@@ -38,7 +38,7 @@ const Dashboard = ({ role }: { role: string }) => {
 
   const fetchForecast = async () => {
     try {
-      const res = await fetch(`http://localhost:8081/api/forecast?market=${market}&date=2026-04-05`);
+      const res = await fetch(`https://ai-energy-trading-backend.onrender.com/api/forecast?market=${market}&date=2026-04-05`);
       if (res.ok) {
         const data = await res.json();
         setForecastData(data.forecast);
@@ -48,7 +48,7 @@ const Dashboard = ({ role }: { role: string }) => {
 
   const fetchRecommendations = async () => {
     try {
-      const res = await fetch('http://localhost:8081/api/recommend', {
+      const res = await fetch('https://ai-energy-trading-backend.onrender.com/api/recommend', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ forecast_data: forecastData, strategy })
@@ -63,7 +63,7 @@ const Dashboard = ({ role }: { role: string }) => {
 
   const fetchRisk = async () => {
     try {
-      const res = await fetch('http://localhost:8081/api/risk', {
+      const res = await fetch('https://ai-energy-trading-backend.onrender.com/api/risk', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ bids })
